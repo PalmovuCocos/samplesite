@@ -32,11 +32,12 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
-    'django.contrib.auth',
+    'django.contrib.auth',  # подсистема разграничения доступа
     'django.contrib.contenttypes',
-    'django.contrib.sessions',
+    'django.contrib.sessions',    # подсистема обслуживающая серверные сессии
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'bboard.apps.BboardConfig',    # подключение приложения bboard
 ]
 
 MIDDLEWARE = [
