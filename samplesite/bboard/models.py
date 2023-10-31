@@ -9,3 +9,4 @@ class Bd(models.Model):
     price = models.FloatField(null=True, blank=True)
     # db_index - создает индекс (дальше мы будем по нему проводить сортировку)
     published = models.DateTimeField(auto_now_add=True, db_index=True)
+
