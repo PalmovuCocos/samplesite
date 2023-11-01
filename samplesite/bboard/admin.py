@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from bboard.models import Bd
+from bboard.models import *
 
 
 class BdAdmin(admin.ModelAdmin):  # класс-редактор
@@ -9,4 +9,5 @@ class BdAdmin(admin.ModelAdmin):  # класс-редактор
     search_fields = ('title', 'content', )
 
 
+admin.site.register(Rubric)
 admin.site.register(Bd, BdAdmin)
