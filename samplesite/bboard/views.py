@@ -1,4 +1,5 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 from django.template import loader
 
 from .models import *
@@ -10,12 +11,6 @@ def index(request):
     он хранит различные сведения о полученом запросе: запрашиваемый интернет-адрес, данные клиента, служебную ин-ю и т д
     :return:
     '''
-    # загрузка шаблона (возвращает объект класса Template)
-    template = loader.get_template('bboard/index.html')
-    # взятие всех записей
     bbs = Bd.objects.order_by('-published')
-    # формирование словаря content для передачи в httpResponse
-    content = {'bbs': bbs}
-    # выполнение рендеринга шаблона с помощью метода render
-    # в итоне в httpResponse поступает html строка
-    return HttpResponse(template.render(content, request))
+
+    return render(request, 'bboard/index.html', {'bbs': bbs})
