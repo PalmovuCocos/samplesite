@@ -11,6 +11,6 @@ def index(request):
     он хранит различные сведения о полученом запросе: запрашиваемый интернет-адрес, данные клиента, служебную ин-ю и т д
     :return:
     '''
-    bbs = Bd.objects.order_by('-published')
+    bbs = Bd.objects.all()
 
     return render(request, 'bboard/index.html', {'bbs': bbs})
