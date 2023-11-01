@@ -4,7 +4,7 @@ from bboard.models import *
 
 
 class BdAdmin(admin.ModelAdmin):  # класс-редактор
-    list_display = ('title', 'content', 'price', 'published')
+    list_display = ('title', 'content', 'price', 'published', 'rubric')
     list_display_links = ('title', 'content')
     search_fields = ('title', 'content', )
 
