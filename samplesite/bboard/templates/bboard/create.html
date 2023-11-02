@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление объявления :: Доска объявлений</title>
+</head>
+<body>
+<h1>Добавление объявления</h1>
+<div>
+    <a href="{% url 'index' %}">Главная</a>
+    <a href="{% url 'add' %}">Добавить</a>
+    {% for rubric in rubrics %}
+    <a href="{% url 'by_rubric' rubric.pk %}">{{rubric.name}}</a>
+    {% endfor %}
+</div>
+
+<!-- Не был указанинтернет адрес на который передаются данные,
+  т.к. в нашем случае данные будут переданы в то же представление-класс по которому было сформировано.-->
+<form method="post">
+    {% csrf_token %}    <!-- Подсистема безопасности django -->
+    {{ form.as_p }}
+    <input type="submit" value="Добавить">
+</form>
+</body>
+</html>

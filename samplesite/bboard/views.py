@@ -1,7 +1,10 @@
 from django.http import HttpResponse
 from django.shortcuts import render
 from django.template import loader
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
 
+from .forms import BdForm
 from .models import *
 
 
@@ -25,3 +28,15 @@ def by_rubric(request, rubric_id):
     content = {'bbs': bbs, 'rubrics': rubrics, 'current_rubric': current_rubric}
     return render(request, 'bboard/by_rubric.html', content)
 
+
+class BdCreateView(CreateView):
+    template_name = 'bboard/create.html'    # путь к файлу шаблона
+    form_class = BdForm         # ссылка на класс формы, связанной с моделью
+    # данная функция принимает имя маршрута и результатом становится готовый интернет-адрес
+    success_url = reverse_lazy('index')    # на какой адрес перенаправлять после успешного сохранения данных
+
+    # данный метод формирует контекст шаблона
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['rubrics'] = Rubric.objects.all()
+        return context
