@@ -1,10 +1,5 @@
 """
-WSGI config for samplesite project.
-
-It exposes the WSGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/4.2/howto/deployment/wsgi/
+Данный модуль связывает проект с веб-сервером посредством интерфейса ASGI
 """
 
 import os

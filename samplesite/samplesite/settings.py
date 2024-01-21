@@ -1,24 +1,18 @@
 
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent   # путь к папке проекта
+# путь к папке проекта
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
 # секретный ключ для шифрования важных данных
 SECRET_KEY = 'django-insecure-etw7w9-btv))37vh4z(omjr0ae+9(hg9rix!ii13h9c#&_2sj@'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True    # режим работы сайта (отладочный или нет)
+# режим работы сайта (отладочный или нет)
+DEBUG = True
 
 ALLOWED_HOSTS = []
-
-
-# Application definition
 
 # список зарегестрированных приложений
 INSTALLED_APPS = [
@@ -64,9 +58,6 @@ TEMPLATES = [
 WSGI_APPLICATION = 'samplesite.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
 # запись данных о используемой балзе данных
 DATABASES = {
     # 'default это псевдоним данной БД'
@@ -77,8 +68,6 @@ DATABASES = {
 }
 
 
-# Password validation
-# https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -96,9 +85,6 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# Internationalization
-# https://docs.djangoproject.com/en/4.2/topics/i18n/
-
 LANGUAGE_CODE = 'ru'
 
 TIME_ZONE = 'UTC'
@@ -108,12 +94,6 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.2/howto/static-files/
-
 STATIC_URL = 'static/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

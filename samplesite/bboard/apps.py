@@ -1,3 +1,6 @@
+'''
+Модуль с настройками приложения
+'''
 from django.apps import AppConfig
 
 
