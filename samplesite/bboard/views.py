@@ -12,7 +12,7 @@ def index(request):
     '''
     :param request: это экземпляр класса HttpRequest
     он хранит различные сведения о полученом запросе: запрашиваемый интернет-адрес, данные клиента, служебную ин-ю и т д
-    :return:
+    :return: render - функция-сокращения для загрузки и рендеринга шаблона 
     '''
     bbs = Bd.objects.all()
     rubrics = Rubric.objects.all()
