@@ -12,6 +12,9 @@ SECRET_KEY = 'django-insecure-etw7w9-btv))37vh4z(omjr0ae+9(hg9rix!ii13h9c#&_2sj@
 # режим работы сайта (отладочный или нет)
 DEBUG = True
 
+# кодровка веб стрниц (изначально не было указано) (по умолчанию utf-8)
+DEFAULT_CHARSET = 'utf-8'
+
 ALLOWED_HOSTS = []
 
 # список зарегестрированных приложений
@@ -29,14 +32,17 @@ INSTALLED_APPS = [
 # и окончательной обработки ответа сгенерированного контроллером
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',    # доп защита от сетевых атак.
-    'django.contrib.sessions.middleware.SessionMiddleware',    #
+    'django.contrib.sessions.middleware.SessionMiddleware',    # обрабатывает серверные сессии на низком уровне
     'django.middleware.common.CommonMiddleware',    # учавствует в предварительной обработке запроса
+    # осуществляет защиту от CSRF атак
     'django.middleware.csrf.CsrfViewMiddleware',
+    # добавляет в атрибут в объект запроса, который хранит текущего пользователя
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# путь к модулю в котором записаны маршруты уровня проекта
 ROOT_URLCONF = 'samplesite.urls'
 
 TEMPLATES = [
@@ -64,6 +70,15 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',    # формат используемой бд
         'NAME': BASE_DIR / 'db.sqlite3',    # путь к файлу БД
+        # 'TIME_ZONE = NONE' временная зона для значений даты и времени в бд
+        #
+        # далее идут параметры для серверных СУБД
+        # HOST - интернет адрес компьютера на котором работает СУБД
+        # PORT - номер TCP порта через который выполняется подключение к СУБД
+        # USER - имя пользователя для подключения к БД
+        # PASSWORD - пароль пользователя для подключения к БД
+        # CONN_MAX_AGE - время в секундах в течении которого соединение с бд будет открыто
+        # OPTIONS - дополнительные (специфичные) параметры для данной бд
     }
 }
 
